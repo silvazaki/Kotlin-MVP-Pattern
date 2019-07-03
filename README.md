@@ -1,3 +1,3 @@
-# kasir
+# MVP PATTERN KOTLIN
 
-Aplikasi Point of Sale dengan Back End Laravel Framework
+The example of model-view-presenter pattern implementation using KOTLIN language
