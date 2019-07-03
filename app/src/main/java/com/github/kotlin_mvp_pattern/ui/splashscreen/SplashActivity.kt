@@ -20,4 +20,8 @@ class SplashActivity : BaseActivity() {
     override fun setUp() {
 
     }
+
+    override fun setActionListener() {
+
+    }
 }

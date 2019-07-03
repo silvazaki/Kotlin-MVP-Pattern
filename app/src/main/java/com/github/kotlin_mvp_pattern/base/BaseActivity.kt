@@ -15,6 +15,8 @@ abstract class BaseActivity : AppCompatActivity() {
 
     abstract fun setUp()
 
+    abstract fun setActionListener()
+
     override fun attachBaseContext(newBase: Context) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
     }

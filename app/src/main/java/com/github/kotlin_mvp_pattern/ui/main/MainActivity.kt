@@ -25,9 +25,10 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setUp()
 
-        presenter = MainPresenter(repository!!, this)
+        setUp()
+        setActionListener()
+
         presenter!!.loadData()
     }
 
@@ -40,9 +41,13 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         toggle.syncState()
         nav_view!!.setNavigationItemSelectedListener(this)
 
+        presenter = MainPresenter(repository!!, this)
         movieAdapter = MovieAdapter(this)
         rv_nowplaying!!.layoutManager = LinearLayoutManager(this)
         rv_nowplaying!!.adapter = movieAdapter
+    }
+
+    override fun setActionListener() {
         movieAdapter.setViewCallback(object : Callback.ViewCallback {
             override fun onClick(position: Int, view: View) {
                 Toast.makeText(applicationContext, position.toString(), Toast.LENGTH_SHORT).show()
