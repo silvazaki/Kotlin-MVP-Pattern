@@ -6,6 +6,7 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
+import com.loopj.android.http.RequestParams
 import cz.msebera.android.httpclient.Header
 import org.json.JSONException
 import org.json.JSONObject
@@ -20,6 +21,7 @@ class APIRequest {
     private val TAG = "hasil"
     private val client: AsyncHttpClient
     private val gson: Gson
+    private val params = RequestParams("api_key", "3dce2cc3191c483d42c878e6409fd560")
 
     init {
         gson = GsonBuilder().create()
@@ -27,8 +29,8 @@ class APIRequest {
     }
 
     fun getNowPlaying(callback: MovieItemsResponse.MovieItemsCallback) {
-        val requestUrl = BASE_URL + "now_playing?api_key=3dce2cc3191c483d42c878e6409fd560"
-        client.get(requestUrl, object : AsyncHttpResponseHandler() {
+        val requestUrl = BASE_URL + "now_playing"
+        client.get(requestUrl, params, object : AsyncHttpResponseHandler() {
             override fun onSuccess(statusCode: Int, headers: Array<Header>, responseBody: ByteArray) {
 
                 var result: String? = null

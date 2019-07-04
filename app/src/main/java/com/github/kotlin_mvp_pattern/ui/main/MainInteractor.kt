@@ -6,7 +6,7 @@ import com.github.kotlin_mvp_pattern.data.model.MovieItems
  * Created by User on 3/19/2019.
  */
 
-class MainMVP {
+class MainInteractor {
     interface View {
         fun showLoading(isLoading: Boolean)
 
